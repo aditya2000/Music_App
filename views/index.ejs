@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,
+  initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mongo File Uploads</title>
+</head>
+
+<body>
+  <h1>Mongo File Uploads</h1>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" id="file">
+      <label for="file" >Choose file</label>
+    </input>
+    <input type="submit" value="submit">
+  </form>
+  <hr>
+      <% if(files) { %>
+          <% files.forEach(function(file) { %>
+              <div>
+                <audio controls>
+                  <source src="files/<%= file.filename %>" type="audio/mpeg">
+                </audio>
+              </div>
+          <% }) %>
+      <% } else { %>
+        <p> no files found </p>
+      <% } %>
+  </hr>
+</body>
+
+</html>
